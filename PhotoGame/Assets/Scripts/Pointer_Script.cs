@@ -25,6 +25,11 @@ public class Pointer_Script : MonoBehaviour
                          hit.collider.CompareTag("Canvas"))
                     {
                         Debug.Log("HIT");
+                        if (!hit.collider.GetComponent<Photo_Script>().changed)
+                        {
+                            Debug.Log("CHANGED");
+                            StartCoroutine(hit.collider.GetComponent<Photo_Script>().PhotoFadeIn());
+                        }
                     }
                 }
                 break;
